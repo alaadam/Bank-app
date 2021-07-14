@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.Green{
+  color : rgba(12, 70, 12, 0.836);
+}
+.Red{
+  color: rgb(121, 13, 13)
+}
+.Balance{
+  margin-right: 30px;
+}
+
+body{
+  font-family: 'Francois One', sans-serif;
+}
