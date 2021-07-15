@@ -3,15 +3,35 @@ import {Form,Col,Row, Button} from 'react-bootstrap'
 
 class Operations extends React.Component {
 
-    updateAmount = (event) => this.props.updateAmount(event.target.value)
+    constructor() {
+        super()
+        this.state = {
+          temptransaction: {}
+        }
+    }
 
-    updateVendor = (event) => this.props.updateVendor(event.target.value)
+    updateAmount = (event) => {
+        let tempTransaction = this.state.temptransaction
+        tempTransaction["amount"] = event.target.value
+        this.setState({ temptranscation: tempTransaction })
+      }
+    
+      updateVendor = (event) => {
+        let tempTransaction = this.state.temptransaction
+        tempTransaction["vendor"] = event.target.value
+        this.setState({ temptranscation: tempTransaction })
+      }
+    
+      updateCategory = (event) => {
+        let tempTransaction = this.state.temptransaction
+        tempTransaction["category"] = (event.target.value).toLowerCase()
+        this.setState({ temptranscation: tempTransaction })
+      }
 
-    updateCategory = (event) => this.props.updateCategory(event.target.value)
 
-    updateDeposit = () => this.props.depositeToTransaction()
+    updateDeposit = () => this.props.depositeToTransaction(this.state.temptransaction)
 
-    updateWithdraw = () => this.props.withdrawfromTransaction()
+    updateWithdraw = () => this.props.withdrawfromTransaction(this.state.temptransaction)
 
     render() {
         return (
